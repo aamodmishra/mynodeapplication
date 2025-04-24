@@ -3,13 +3,16 @@ const app = express()
 
 
 app.get("/",(req,res)=>{
-    res.send("bye world")
+    res.json({
+        name:"aamod",
+        age : "19"
+        
+       
+    })
 })
-app.get("/about",(req,res)=>
-    res.send("bye hi muji world")
+app.get("/about",function(req,res){
+    res.send("bye hi  world")}
 )
-
-
 
 
 
