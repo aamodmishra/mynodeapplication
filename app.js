@@ -1,24 +1,38 @@
-const  express =require("express")
-const app = express()
-
-
-app.get("/",(req,res)=>{
+const express = require("express") // express require gareko
+const app = express() // express lai trigger gareko 
+require("./database/connection")
+//test
+// let app = require("express")()
+app.get("/books",function(req,res){
+    // logic to fetch books from database 
     res.json({
-        name:"aamod",
-        age : "19"
-        
-       
+        message : "books fetched successfully"
     })
 })
-app.get("/about",function(req,res){
-    res.send("bye hi  world")}
-)
 
+app.post("/books",function(req,res){
+    // logic to add book to database goes here.. 
 
+    res.json({
+        message : "Book added successfully"
+    })
+})
 
+app.delete("/books/:id",function(req,res){
+    // logic to delete book
+    res.json({
+      message : "Book Deleted successfully"
+    })
+})
+app.patch("/books/:id",function(req,res){
+    // logic to update book
+    res.json({
+      message : "Book updated successfully"
+    })
+})
 
+postgresql://postgres.scfmicugsxklxgoyqgar:hahahehehuhu@aws-0-ap-south-1.pooler.supabase.com:6543/postgres
 
-app.listen(3000,function(){
-    console.log("hello aamod project has started at port 300 after some change ");
-    
+app.listen(4000, function () {
+    console.log("project/server/backend has started at port 4000")
 })
